@@ -138,4 +138,4 @@ echo "✅ Generated wrangler.toml:" >&2
 cat wrangler.toml >&2
 
 echo "🚀 Starting Wrangler on port $PORT..." >&2
-exec npx wrangler dev "$WORKER_SCRIPT" --port "$PORT" --host 0.0.0.0 --local
+exec npx wrangler dev "$WORKER_SCRIPT" --port "$PORT" --ip 0.0.0.0 --local
