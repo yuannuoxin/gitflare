@@ -6,6 +6,21 @@ DATA_DIR="/app/data"
 
 mkdir -p "$DATA_DIR"
 
+
+# === 2. 可选：读取分支/标签（支持空值）===
+BRANCH="${GIT_BRANCH:-}"
+
+# === 3. 克隆仓库 ===
+echo "📦 Cloning repository: $GIT_REPO"
+
+if [ -n "$BRANCH" ]; then
+  echo "🌿 Cloning branch/tag: '$BRANCH'"
+  git clone --depth=1 --single-branch --branch "$BRANCH" "$GIT_REPO" "$WORK_DIR"
+else
+  echo "🌱 Cloning default branch (GIT_BRANCH not set)"
+  git clone --depth=1 "$GIT_REPO" "$WORK_DIR"
+fi
+
 echo "📥 Cloning Git repo: $GIT_REPO"
 git clone "$GIT_REPO" "$WORK_DIR"
 
