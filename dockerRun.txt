@@ -1,0 +1,21 @@
+
+
+
+
+docker run -it --entrypoint sh gitflare
+
+docker build -t gitflare .
+
+
+
+docker run -p 8081:8080 \
+  -e GIT_REPO="https://github.com/yuannuoxin/gitflare" \
+  -e WORKER_SCRIPT="_worker.js" \
+  -e ENV_UUID=be72ca42-c8f5-4bb1-863e-5b2927767c5a \
+  -e ENV_API_KEY=secret123 \
+  -e KV_SESSIONS=xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx \
+  -e R2_ASSETS=my-public-bucket \
+  -e D1_USERS=yyyyyyyy-yyyy-yyyy-yyyy-yyyyyyyyyyyy \
+  -e DO_CHAT_ROOM=ChatRoom \
+  -e QUEUE_EVENTS=my-event-queue \
+  gitflare
