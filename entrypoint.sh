@@ -21,9 +21,6 @@ else
   git clone --depth=1 "$GIT_REPO" "$WORK_DIR"
 fi
 
-echo "📥 Cloning Git repo: $GIT_REPO"
-git clone "$GIT_REPO" "$WORK_DIR"
-
 cd "$WORK_DIR"
 
 # 安装依赖（如果存在 package.json）
